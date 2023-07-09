@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+     <script>
+    
+        var cities=[];
+
+        function Addcity()
+        {
+            var c=document.getElementById("cty").value;
+            document.write(c);
+            var i=cities.indexOf(c.toUppercase());
+
+            
+            if(i==-1)
+            {
+                cities.push(c.toUppercase());
+            }
+            else
+            {
+                alert("city alretcity exits");
+            }
+            //cleardata();
+            //DisplayCities();
+
+        }
+/*
+        function removecity(p)
+        {
+          cities.splice(p,1);
+          DisplayCities();
+        }
+
+
+        function cleardata()
+        { 
+            document.getElementById("city").value="";
+
+        }
+
+
+        function displaycities()
+        {
+            var data=" ";
+            for(var i=0;i<cities.length;i++)
+            {
+                data+= "<li><input type='button' value='city' onclick=removecity('i')/>" + cities[i]+ "</li>";
+            }
+            document.getElementById("abc").innerHTML=data;
+        }  */
+     </script>
+
+<body>
+
+    Enter city <input type="text" name="cty">
+    <input type="submit" value="submit" onclick="Addcity()">
+    <h1 id="abc"></h1>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var cities=[
+            {"cityid":1,"cname":"pune"},
+            {"cityid":2,"cname":"mumbai"},
+            {"cityid":3,"cname":"delhi"}
+        ];
+        function Addcities()
+        {
+              var data=" ";
+              for(var i=0;i<cities.length;i++)
+              {
+                //data+="<option>"+cities[i].cname+"</option>";
+
+                data+="<option>"+cities[i].cname+"</option>";
+              }
+              document.getElementById("addcity").innerHTML=data;
+              console.log(cities);
+        }
+    </script>
+</head>
+<body onload="Addcities()">
+    <label for="">Select cities</label>
+    <select id="addcity">
+        <option value=""></option>
+        
+    </select>
+</body>
+</html>

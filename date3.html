@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+    function DisplayDate()
+    {
+        var sdt=document.getElementById("sd").value;
+        var edt=document.getElementById("ed").value;
+         
+        var stime=new Date("02 10 2023 "+sdt);
+        var etime=new Date("02 10 2023 "+edt);
+
+         var time=(((etime-stime)/1000)/60);
+
+         var h=Math.floor(time/60);
+         var m=(time%60);
+
+
+         
+        
+        //var d=((((edate-sdate)/1000)/60)/60)/24;
+   document.getElementById("abc").innerHTML=h+ " hours  "+m+ " minutes  ";
+    }
+    </script>
+</head>
+<body>
+    <input type="time" id="sd" >
+    <input type="time" id="ed">
+
+    <input type="button" value="submit" onclick="DisplayDate()">
+    <h2 id="abc"></h2>
+</body>
+</html>

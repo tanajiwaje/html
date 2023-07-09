@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product details</title>
+    <link rel="stylesheet" href="/Bootstrap Files/css/bootstrap.min.css">
+
+    <script>
+        var TotalStock=100;
+        var Product=[];
+        var id=0;
+        function Calculation()
+        {
+            id++;
+            var select=document.getElementById("sel").value;
+            var quantity=Number(document.getElementById("qty").value);
+            var price=document.getElementById("price").value;
+            var stock=Number(document.getElementById("stock").value);
+             
+            Total=quantity*price;
+            //Astock=TotalStock-quantity;
+            TotalStock=stock;
+            
+
+            
+
+
+            var pr={
+                "id":id,"select":select,"quantity":quantity,"price":price,"stock":stock,"total":Total
+            };
+            Product.push(pr);
+            clearData();
+            DisplayData();
+           
+            
+        }
+        function clearData()
+        {
+            document.getElementById("qty").value="";
+            document.getElementById("price").value="";
+            document.getElementById("stock").value="";
+            document.getElementById("total").value="";
+        }
+        function DisplayData()
+        {
+            var data="";
+            Product.forEach(function(d,i){
+              data=data+"<tr><td>"+d.id+"</td>"+
+                         "<td>"+d.select+"</td>"+
+                         "<td>"+d.quantity+"</td>"+
+                         "<td>"+d.price+"</td>"+
+                         "<td>"+d.stock+"</td>"+
+                         "<td>"+d.total+"</td>"+
+                         "<td> <input type='button' value=X onclick='Remove("+i+")' class='btn btn-danger'>";
+            })
+
+            document.getElementById("tbldata").innerHTML=data;
+        }
+
+        function Remove(p)
+        {
+            Product.splice(p,1);
+            DisplayData();
+        }
+
+        function TotalDisplay()
+        {
+            var Astock=0;
+            var qty=document.getElementById("qty").value;
+            var pr=document.getElementById("price").value;
+
+            var total=qty*pr;
+            var Astock=TotalStock-qty;
+            //alert(Astock);
+
+           document.getElementById("stock").value=Astock;
+            document.getElementById("total").value=total;
+
+
+
+        }
+
+    
+
+        
+    </script>
+</head>
+<body>
+    <table class="table" style="width: 300px;">
+        <tr>
+            <td>product Name:</td>
+            <td>
+                <select  id="sel" class="form-control">
+                    <option value="Pen">Pen</option>
+                    <option value="Pencil">Pencil</option>
+                    <option value="Desk Tidy">Desk Tidy</option>
+                    <option value="Pen Cups">Pen Cups</option>
+                    <option value="Note Holders">Note Holders</option>
+                </select>
+
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>Quantity</td>
+            <td><input type="text" id="qty" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <td>Price</td>
+            <td><input type="text" id="price" onkeyup="TotalDisplay()" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <td>Avaliable Stock</td>
+            <td><input type="text" id="stock" class="form-control"></td>
+    
+        </tr>
+
+        <tr>
+            <td>Total</td>
+            <td><input type="text" id="total" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="submit" onclick="Calculation()" class="btn btn-primary"></td>
+        </tr>
+
+
+
+
+       
+    </table>
+
+    <table border="1" class="table">
+        <thead>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Avaliable Stock</th>
+            <th>Total</th>
+            <th>Action</th>
+        </thead>
+
+        <tbody id="tbldata">
+
+        </tbody>
+    </table>
+</body>
+</html>

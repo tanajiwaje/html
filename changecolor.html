@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+        <script>
+            function calculation()
+            {
+                var a=Number(document.getElementById("marks").value);
+                if(a>=35)
+                { 
+                    document.getElementById("cls").innerHTML=style.color=red;
+                }
+                else
+                {
+                    document.getElementById("cls").innerHTML="fail";
+                }      
+            }
+        </script>
+<body>
+
+    Enter marks:<input type="text" placeholder="enter marks" id="marks">
+    <input type="submit" value="click" onclick="calculation()">
+
+    <h1 id="cls"></h1>
+</body>
+</html>

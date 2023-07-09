@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="../Bootstrap Files/css/bootstrap.min.css">
+  <script src="../Bootstrap Files/js/bootstrap.min.js"></script>
+  <script src="../Bootstrap Files/js/jquery.min.js"></script>
+<style>
+    li{
+        color: red;
+    }
+
+    *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        list-style: none;
+        font-family:'Times New Roman', Times, serif;
+    }
+
+    .main{
+        width: 100%;
+         height: 100vh;
+         display: flex;
+         text-align: center;
+    }
+
+    .menu,  .body{
+    
+        display: inline-block;
+        margin-top:-20px;
+
+    }
+    .menu{
+        background-color: aqua;
+        width: 50%;
+    }
+    .body{
+        background-color: cadetblue;
+    }
+
+    .menu ul li{
+        text-decoration: none;
+        color: darkgray;
+        font-size: 18px;
+        letter-spacing:2px ;
+        display: list-item;
+        padding: 20px;
+        
+        cursor: pointer;
+    }
+
+    .menu ul li:hover{
+      background-color: gold;
+      transition: 0.5s;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+</style>
+</head>
+<body>
+    <div class="container-fluid">
+   <div class="navbar navbar-inverse">
+         <div class="navbar-brand">
+            <span style="color: burlywood;">CIIT</span> 
+         </div>
+
+         <div class="navbar-collapse">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+
+                <li class="nav-item" style="margin-left:60%;margin-top: 5px;">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#mymodal">Add</button>
+                    
+                </li>
+            </ul>
+
+            
+         </div>
+
+   </div>
+
+     <div class="main">
+        <!-- menu -->
+        <div class="menu">
+               <ul>
+                <li>click 1</li>
+                <li>click 2</li>
+                <li>click 3</li>
+                <li>click 4</li>
+                <li>click 5</li>
+                <li>click 6</li>
+                <li>click 7</li>
+                <li>click 8</li>
+                <li>click 9</li>
+               </ul>
+        </div>
+
+        <!-- body -->
+        <div class="body">
+            
+            <h1>sidebar useing html cs</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, deserunt veritatis illum beatae nulla repellat, architecto atque sit ratione unde quaerat eum fugiat obcaecati natus, omnis incidunt reprehenderit et odit odio harum. Doloribus, deleniti tenetur! Minima deserunt temporibus amet hic pariatur quis, cum nam aperiam, molestias quidem animi rerum fugiat optio debitis dolores. Sed, modi quos beatae sunt dicta perferendis et tempora. Dolore alias quos temporibus in cupiditate porro ab laboriosam quisquam ut, voluptates quasi dignissimos sunt? Iusto, unde fugiat repellendus doloribus deserunt ea, recusandae blanditiis sapiente autem possimus eos accusamus iure nam quasi dolorum eveniet cumque aliquam! Cupiditate, labore.
+            </p>
+        </div>
+     </div> 
+     </div>   
+
+    
+
+
+
+</body>
+</html>
+
+

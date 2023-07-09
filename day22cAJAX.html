@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/Bootstrap Files/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+                Getstate();
+                $("#btnadd").click(function(){
+                    Addstate();
+                })
+        })
+
+
+
+        function Getstate(){
+            $.ajax({
+                url:'https://ciitinstitute.com/api/state',
+                method:'get',
+                contentType:'application/json',
+                success:function(resp){
+                    $("#tbldata").empty();
+                    $.each(resp,function(i,d){
+                        $("#tbldata").append("<tr><td>"+d.state_id+"</td><td>"+d.state_name+"</td><td>"+d.status+"</td></tr>");
+                    })
+                }
+            })
+        }
+
+
+        function Addstate(){
+            var n=$("#sname").val();
+            var s=$("#status").val();
+            var obj={"state_name":n,"status":s};
+            $.ajax({
+                url:'https://ciitinstitute.com/api/state',
+                method:'post',
+                data:JSON.stringify(obj),
+                contentType:'application/json',
+                success:function(resp){
+                    alert(resp);
+                    Getstate();
+                    cleardata();
+                }
+            })
+        }
+
+        function cleardata(){
+            $("#sid").val("");
+            $("#sname").val("");
+            $("#status").val("");
+            
+        }
+
+        
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>State Id</th>
+            <th><input type="text" id="sid"/></th>
+        </tr>
+        <tr>
+            <th>State Name</th>
+            <th><input type="text" id="sname"/></th>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <th><input type="text" id="status"/></th>
+        </tr>
+        <tr>
+
+            <th><input type="button" id="btnadd" value="Add"/></th>
+        </tr>
+    </table>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>State Id</th>
+                <th>State Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tbldata"></tbody>
+    </table>
+</body>
+</html>

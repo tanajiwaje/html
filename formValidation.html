@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate()
+        {
+            var status=true;
+            var r=document.forms["empform"]["rno"].value;
+            if(r=="")
+            {
+                status=false;
+                document.getElementById("sprno").innerHTML="please enter your Roll no";
+
+            }
+            else
+            {
+                var rnopattern=/^[a-zA-z]+$/;
+                if(!r.match(rnopattern))
+                {
+                      status=false;
+                    document.getElementById("sprno").innerHTML="only numbers Allowed";
+
+                }
+                else{
+                    status=true;
+                    document.getElementById("sprno").innerHTML="";
+                }
+            }
+            return status;
+        }
+    </script>
+</head>
+<body>
+    <form name="empform" method="get" action="Dashboard.html" onsubmit="return validate()" >
+    
+        <table>
+            <tr>
+                <th>Roll NO</th>
+                <th> <input type="text" name="rno"></th>
+                <th><span id="sprno" style="color:red;"></span></th>
+            </tr>
+
+            <tr>
+                <th>
+                student Name:
+                </th>
+
+                <th>
+                    <input type="text" name="sname">
+                </th>
+            </tr>
+
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="submit">
+                    <input type="reset" value="clear">
+                </th>
+
+            </tr>
+
+        </table>
+    
+    
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <script>
+    function show()
+    {
+          data+="<select><option value='pune'>Pune</option>"+
+            "<option value='mumbai'>mumbai</option>"+
+        "<option value='Ahemadabat'>Ahemadabat</option>"+
+        "<option value='Gujrat'>Gujrat</option>"+
+        "<option value='surat'>surat</option> </select>";
+        
+        document.getElementById("city").value=data;
+        console.log(data);
+    }
+ </script>
+<body onload="show()">
+    
+        <p id="city"></p>
+   
+</body>
+</html>

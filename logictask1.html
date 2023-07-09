@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Valid()
+        {
+            var status=true;
+            var data=document.forms["frm"]["em"].value;
+             
+            var ptr=/[a-z0-9]+[@]+[a-z]+[.]/;
+
+            if(data.match(ptr))
+            {
+                //alert("match");
+                document.getElementById("ab").innerHTML="valid";
+                status=true;
+            }
+            else
+            {
+                //alert("not match")
+                document.getElementById("abc").innerHTML="invalid";
+                status=false;
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <form action="#" name="frm" method="get" onsubmit="return Valid()">
+  Enter email <input type="text" name="em"> 
+  <input type="submit" value="submit"> 
+  <input type="reset" value="reset" id="">
+</form>
+
+<p id="ab" style="color: green;"></p> <p id="abc" style="color: red;"></p> 
+</body>
+</html>

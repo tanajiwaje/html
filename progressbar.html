@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Bootstrap Files/css/bootstrap.min.css">
+
+    <script>
+        //var yes=0;
+        //var no=0;
+        var countyes=1;
+        var countno=1;
+        function Display() {
+              
+            
+            if (document.getElementById("yes").checked) {
+                countyes++;
+        
+            }
+
+            if (document.getElementById("no").checked){
+                countno++;
+            }
+
+            var total=countyes+countno;
+            //alert("total : "+total);
+
+           var y=countyes/total*100;
+           var n=countno/total*100;
+
+           //alert(y);
+           //alert(n);
+
+            var data = "<div class='progress'><div class='progress-bar progress-bar-success' role='progressbar' style='width:"+y+"%'> "+y+"% </div>"+
+                "<div class='progress-bar progress-bar-warning' role='progressbar' style='width:"+n+"%'> "+n+"% </div>"
+                document.getElementById("pr").innerHTML=data;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    Do you know Javascript ? <br>
+    <input type="radio" name="name" value="1" id="yes">Yes <br>
+    <input type="radio" name="name" value="0" id="no">No
+
+    <div class="progress" id="pr">
+
+    </div>
+
+    <input type="button" name="button" value="submit" onclick="Display()">
+
+
+
+
+    </div>
+</body>
+
+</html>

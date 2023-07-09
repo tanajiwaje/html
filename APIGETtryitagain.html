@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/Bootstrap Files/js/jquery.min.js"></script>
+    <script>
+         $(document).ready(function(){
+             clearData();
+                GetState();
+                $("#btn1").click(function(){
+                    AddState();
+                })
+
+                $("#btn").click(function(){
+                    Update();
+                })
+
+                $("#btn2").click(function(){
+                    Delete();
+                })
+           
+         })
+
+
+         function Delete()
+         {
+            var i=$("#sid").val();
+            $.ajax({
+                url:'https://ciitinstitute.com/api/deletestate/'+i,
+                method:'post',
+                headers:{
+                    'x-http-method-override':'delete'
+                },
+                contentType:'application/json',
+                success:function(resp){
+                    alert(resp)
+                    GetState();
+                    clearData();
+                }
+            })
+         }
+
+         function Update()
+         {
+            var i=$("#sid").val();
+            var n=$("#sname").val();
+            var s=$("#status").val();
+
+            var obj={"state_id":i,"state_name":n,"status":s};
+
+            $.ajax({
+                url:'https://ciitinstitute.com/api/state',
+                method:'post',
+                headers:{
+                      'x-http-method-override':'put'
+                },
+                data:JSON.stringify(obj),
+                contentType:'application/json',
+                success:function(resp){
+                    alert(resp)
+                    GetState();
+                    clearData();
+                }
+            })
+         }
+
+         function Show(id)
+         {
+            $.ajax({
+                url:'https://ciitinstitute.com/api/state/'+id,
+                method:'get',
+                contentType:'application/json',
+                success:function(resp){
+                    $("#sid").val(resp.state_id);
+                    $("#sname").val(resp.state_name);
+                    $("#status").val(resp.status);
+                }
+            })
+         }
+
+         
+
+         function GetState()
+         {
+            $("#tbldata").empty();
+            $.ajax({
+                url:'https://ciitinstitute.com/api/state',
+                method:'get',
+                contentType:'application/json',
+                success:function(resp){
+                    $.each(resp,function(i,d){
+                        $("#tbldata").append("<tr><td>"+d.state_id+"</td><td>"+d.state_name+"</td><td>"+d.status+"<td><input type='button' value='view' onclick=Show("+d.state_id+")></td></td></tr>")
+                    })
+                }
+            })
+         }
+
+        
+
+        
+
+         function AddState()
+         {
+            var n=$("#sname").val();
+            var s=$("#status").val();
+            var obj={"state_name":n,"status":s}
+            $.ajax({
+                url:'https://ciitinstitute.com/api/state',
+                method:'post',
+                data:JSON.stringify(obj),
+                contentType:'application/json',
+                success:function(resp){
+                    alert(resp);
+                    GetState();
+                }
+
+            })
+         }
+
+
+
+         function clearData()
+         {
+            $("#sid").val("");
+            $("#sname").val("");
+            $("#status").val("");
+         }
+       
+         
+         
+
+         
+
+        
+
+    </script>
+</head>
+<body>
+     <table>
+      <tr>
+           <th>state id</th>
+           <th><input type="text" id="sid"></th>
+      </tr>
+      <tr>
+        <th>state name</th>
+        <th><input type="text" id="sname"></th>
+   </tr>
+   <tr>
+    <th>state status</th>
+    <th><input type="text" id="status"></th>
+</tr>
+
+<tr>
+    <th><input type="button" value="add" id="btn1"></th>
+    <th><input type="button" value="update" id="btn"></th>
+    <th><input type="button" value="Delete" id="btn2"></th>
+
+</tr>
+     </table>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>state id</td>
+                <td>state name</td>
+                <td>status</td>
+            </tr>
+        </thead>
+
+
+        <tbody id="tbldata">
+          
+        </tbody>
+    </table>
+</body>
+</html>

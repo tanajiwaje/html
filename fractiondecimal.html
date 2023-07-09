@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function Show()
+        {
+            var a=Number(document.getElementById("num").value);
+              var fractionalpart=a%1;
+              var integral=a-fractionalpart;
+              alert(fractionalpart);
+              alert(integral);
+
+                //int a=10;
+                 
+           // double value = 3.25;
+            // double fractionalPart = value % 1 
+ // double integralPart = value - fractionalPart;
+        }
+    </script>
+
+</head>
+<body>
+    enter number <input type="text" id="num">
+    <input type="button" value="submit" onclick="Show()">
+</body>
+</html>

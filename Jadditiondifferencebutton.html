@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../Bootstrap Files/js/jquery.min.js"> </script>
+    <script>
+        $(document).ready(function(){
+            $("#Add").click(function(){
+                var a = Number($("#txt1").val());
+                var b = Number($("#txt2").val());
+                var c=a+b;
+                $("#a").html("Addition ="+c);
+            })
+
+            $("#Sub").click(function(){
+                var a = Number($("#txt1").val());
+                var b = Number($("#txt2").val());
+                var c=a-b;
+                $("#a").html("substration ="+c);
+            })
+
+            $("#Multi").click(function(){
+                var a = Number($("#txt1").val());
+                var b = Number($("#txt2").val());
+                var c=a*b;
+                $("#a").html("Multiplication ="+c);
+            })
+
+            $("#Div").click(function(){
+                var a = Number($("#txt1").val());
+                var b = Number($("#txt2").val());
+                var c=a/b;
+                $("#a").html("Division ="+c);
+            })
+           
+        })
+    </script> 
+</head>
+
+<body>
+    text 1 : <input type="text" id="txt1"> <br>
+    text 2 : <input type="text" id="txt2"> <br>
+    <input type="button" value="add" id="Add">
+    <input type="button" value="sub" id="Sub">
+    <input type="button" value="multi" id="Multi">
+    <input type="button" value="div" id="Div">
+
+    <h1 id="a"></h1>
+</body>
+</html>

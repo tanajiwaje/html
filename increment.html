@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+   function fun()
+   {
+      var ini=Number(document.getElementById("init").value);
+      var con=Number(document.getElementById("condition").value);
+      var inc=Number(document.getElementById("increment").value);
+    
+     for(ini;ini<=con;ini=ini+inc)
+     {
+          document.write(ini+"<br>");    
+     }
+
+   }
+
+   </script>
+
+<body>
+
+    Initilization <input type="text"  id="init"><br>
+    condition <input type="text" id="condition"><br>
+    Increment <input type="text" id="increment"><br>
+
+    <input type="button" value="submit" onclick="fun()">
+     
+
+</body>
+</html>

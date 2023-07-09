@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/Bootstrap Files/js/jquery.min.js"></script>
+    <script>
+       $(document).ready(function(){
+          $("#btn1").click(function(){
+            GetData();
+          })
+           
+           $("#btn").click(function(){
+              AddData();
+           })
+       })
+
+       function GetData()
+       {
+          $.ajax({
+            url:"https://ciitinstitute.com/api/state",
+            method:'get',
+            contentType:'application/json',
+            success:function(resp){
+                $("#tbldata").empty();
+                $.each(resp,function(i,d){
+                    $("#tbldata").append("<tr><td>"+d.state_id+"</td><td>"+d.state_name+"</td><td>"+d.status+"</td></tr>");
+                })
+            }
+          })
+       }
+
+      function AddData()
+    {
+          var n=$("#sname").val();
+          var s=$("#status").val();
+          var obj={"state_name":n,"status":s};
+         $.ajax({
+            url:'https://ciitinstitute.com/api/state',
+            method:'post',
+            data:JSON.stringify(obj),
+            contentType:'application/json',
+            success:function(resp){
+               alert(resp);
+            }
+         })     
+        /* $.ajax({
+            url:"https://ciitinstitute.com/api/state",
+            type:'post',
+            contentType:'application/json',
+            data:JSON.stringify(obj),
+            success:function(rest){
+                alert(rest);
+            
+            }
+         }) */
+         }      
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>state id</td>
+        <td><input type="text" id="id">
+        </td>
+    </tr>
+
+    <tr>
+        <td>state name</td>
+        <td><input type="text" id="sname">
+        </td>
+    </tr>
+
+    <tr>
+        <td>state status</td>
+        <td><input type="text" id="status">
+        </td>
+    </tr>
+
+    <tr>
+        <th><input type="button" value="Display" id="btn1"></th>
+        <th><input type="button" value="Add" id="btn"></th>
+        
+        
+    </tr>
+</table>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>state id</th>
+                <th>state name</th>
+                <th>state status</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbldata">
+
+        </tbody>
+    </table>
+
+
+
+    
+</body>
+</html>

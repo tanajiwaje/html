@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .container .box{
+           position: relative;
+           width: 20rem;
+           height: 3rem;
+           margin: 3rem;
+        }
+
+        .container .box:hover .imgBox{
+            transform: translate(-1.5rem,-1.5rem);
+
+        }
+        .container .box:hover .content{
+            transform: translate(3.5rem,3.6rem);
+
+        }
+
+        .imgBox{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            transition: all 0.5 ease-in-out;
+        }
+
+        .imgBox img{
+            width: 20rem;
+            height: 20rem;
+            object-fit: cover;
+            resize: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="imgBox">
+                <img 
+                 src="/html/task7.jpg"  width="220px" height="220px" alt="">
+            </div>
+            <div class="content">
+                <h2>Akash Agarwal</h2>
+                <span>
+                    Softwear Engineer
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

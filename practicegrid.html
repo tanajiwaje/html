@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 0.5fr 1.5fr 1fr;
+            grid-template-rows: 1.5fr 1.9fr 0.5fr;
+            grid-template-areas: "sidebar cls login"
+                                "sidebar main main"
+                                "sidebar footer footer";
+
+
+        }
+        .sidebar{
+            background: darkcyan;
+            grid-area: sidebar;
+        }
+        .cls{
+            background: red;
+            grid-area: cls;
+        }
+        .login{
+            background: orange;
+            grid-area: login;
+        }
+        .main{
+            background: chartreuse;
+            grid-area: main;
+        }
+        footer{
+            background: indianred;
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="sidebar">sidebar</div>
+        <div class="cls">cls</div>
+        <div class="login">login</div>
+        <div class="main">main</div>
+        <footer><h2>this is footer</h2></footer>
+    </div>
+</body>
+</html>

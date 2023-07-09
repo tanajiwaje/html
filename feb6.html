@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Bootstrap Files/css/bootstrap.css">
+
+    <script>
+        var student=[];
+        var Totalstudent=0;
+        var passed=0;
+        var failed=0;
+        function calculate()
+        {
+            var m=Number(document.getElementById("txtmath").value);
+            var s=Number(document.getElementById("txtsc").value);
+            var cs=Number(document.getElementById("txtcs").value);
+
+            
+            var t=m+s+cs;
+           // document.write(t);
+            var p=(t/3).toFixed(2);
+            var g="";
+            if(p>=35 )
+            {
+                g="pass";
+
+            }
+            else
+            {
+                g="fail";
+    
+            }
+        
+            document.getElementById("txttotal").value=t;
+            document.getElementById("txtper").value=p;
+            document.getElementById("txtgrade").value=g;
+
+        }
+
+        function Addfuntion()
+        {
+            var r=document.getElementById("txtrno").value;
+            var n=document.getElementById("txtname").value;
+            var m=document.getElementById("txtmath").value;
+            var s=document.getElementById("txtcs").value;
+            var t=document.getElementById("txttotal").value;
+            var p=document.getElementById("txtper").value;
+            var g=document.getElementById("txtgrade").value;
+         
+            
+             Totalstudent++;
+             if(g=="pass")
+             {
+                passed++;
+             }
+             if(g=="fail"){
+                failed++;
+             }
+
+
+            var st={
+                "Rollno":r,"name":n,"Total":t,"Percentage":p,"grade":g
+            };
+             
+            student.push(st);
+            console.log(student);
+            clearData();
+            DisplayStudent();
+        }
+
+
+        function clearData()
+        {
+            var r=document.getElementById("txtrno").value="";
+            var n=document.getElementById("txtname").value="";
+            var m=document.getElementById("txtmath").value="";
+            var s=document.getElementById("txtcs").value="";
+            var t=document.getElementById("txttotal").value="";
+            var sc=document.getElementById("txtsc").value="";
+            var p=document.getElementById("txtper").value="";
+            var g=document.getElementById("txtgrade").value=""; 
+        }
+
+    function DisplayStudent()
+    {
+        var data=" ";
+
+        for(i=0;i<student.length;i++)
+        {
+            data=data+"<tr><td>"+student[i].Rollno+"</td>"+
+                     "<td>"+student[i].name+"</td>"+
+                     "<td>"+student[i].Total+"</td>"+
+                     "<td>"+student[i].Percentage+"</td>"+
+                     "<td>"+student[i].grade+"</td></tr>";
+
+                     
+                     
+        }
+        data=data+"<p>Totol :"+Totalstudent+"</p>"
+        data=data+"<p>Totol passed:"+passed+"</p>"
+        data=data+"<p>Totol failed:"+failed+"</p>"
+        document.getElementById("tb").innerHTML=data;
+
+    }
+        
+    </script>
+
+<style>
+        th{
+            text-align: right;
+            color: teal;
+        }
+        .main{
+            margin-right: 40%;
+            margin-left:30% ;
+            margin-top: 2%;
+        
+        }
+        .table{
+            border-color: cadetblue;
+            box-shadow: 1px 3px 10px ;
+            text-shadow: 0px 0px 0px ;
+        }
+
+        .t{
+            background-color: cadetblue;
+        }
+
+    
+    </style>
+
+
+</head>
+<body>
+    <div class="main">
+    <table class="table" border="1">
+        <tr>
+            <th>Roll no</th>
+            <td><input type="text" id="txtrno" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <th>Name</th>
+            <td><input type="text" id="txtname" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <th>Math</th>
+            <td><input type="text" id="txtmath" onchange="calculate()" class="form-control"></td>
+        </tr>
+
+        <tr>
+           <th>science</th>
+           <td><input type="text" id="txtsc" onchange="calculate()" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <th>c.s</th>
+            <td><input type="text" id="txtcs" onchange="calculate()" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <th>Total</th>
+            <td><input type="text" id="txttotal" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <th>Percentage</th>
+            <td><input type="text" id="txtper" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <th>Grade</th>
+            <td><input type="text" id="txtgrade" class="form-control"></td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td><input type="button"  value="submit" class="btn btn-primary" onclick="Addfuntion()" style="width: 160px;"></td>
+        </tr>
+    
+        
+        <tr>
+            <th class="t"></th>
+            <th class="t"></th>
+                <th class="t"></th>
+                <th class="t"></th>
+                <th class="t"></th>
+          </tr>
+
+      <tr>
+        <th>roll no</th>
+        <th>name</th>
+            <th>total </th>
+            <th>Percentage</th>
+            <th>grade</th>
+      </tr>
+
+      <tbody id="tb">
+
+      </tbody>
+    </table>
+
+
+</div>
+</body>
+</html>

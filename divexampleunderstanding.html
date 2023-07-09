@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    
+    <style>
+       .container
+       {
+        display: grid;
+        height:100vh ;
+        grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.4fr 1.5fr 1.3fr 0.8fr;
+        color: aqua;
+        grid-template-areas: "navbar navbar navbar navbar"
+                              "sidebar main main main"
+                              "sidebar box1 box2 box3"
+                              "sidebar footer footer footer"
+
+       }
+       nav{
+           background: firebrick;
+           grid-area: navbar;
+       }
+       main{
+         background: hotpink;
+         grid-area: main;
+       }
+       .sidebar{
+             background: yellow;
+             grid-area: sidebar;
+       }
+       .box1{
+              background: chartreuse;
+       }
+       .box2{
+              background: navy;
+       }
+       .box3{
+              background: indigo;
+       }
+       footer{
+           background: seagreen;
+           grid-area: footer;
+       }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>Navbar</nav>
+        <main>main</main>
+        <div class="sidebar">sidebar</div>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+        <footer></footer>
+    </div>
+    
+</body>
+</html>

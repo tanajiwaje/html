@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="/Bootstrap Files/css/bootstrap.css">
+</head>
+
+<script>
+    var student=[];
+    function Addstudent()
+    {
+        var r=document.getElementById("roll").value;
+        var n=document.getElementById("name").value;
+        var m=document.getElementById("marks").value;
+
+        var st={"Roll":r,"name":n,"marks":m}
+        student.push(st);
+        console.log(student);
+        cleardata();
+        DisplayStudent();
+    }
+    function cleardata()
+    {
+        document.getElementById("roll").value=" ";
+        document.getElementById("name").value=" ";
+        document.getElementById("marks").value=" ";
+    }
+
+    function DisplayStudent()
+    {
+        var data="";
+        for(i=0;i<student.length;i++)
+        {
+            data=data+"<tr><td>"+student[i].Roll+"</td>"+
+                "<td>"+student[i].name+"</td>"+
+                "<td>"+student[i].marks+"</td>"+
+                "<td>"+"<input type='button' value='X' class='btn btn-danger' onclick=remove("+i+") >"+"</td></tr>";
+
+        }
+        document.getElementById("tb").innerHTML=data;
+    }
+
+    function remove(p)
+    {
+          student.splice(p,1);
+          DisplayStudent();
+    }
+
+
+
+</script>
+
+<style>
+    .main{
+        border: 1px solid white;
+    }
+</style>
+
+<body>
+    
+    <div class="panel panel-primary">
+        <div class="panel panel-heading">
+            <h1>student information</h1>
+        </div>
+        <div class="panel panel-body">
+            <div class="main">
+                <div class="row">
+                <div class="col-md-1"><label for="">Roll NO:</label></div>
+                <div class="col-md-5"><input type="text" id="roll" class="form-control" style="width: 20%;"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"><label for="">Name</label></div>
+                    <div class="col-md-5"><input type="text" id="name" class="form-control" style="width: 20%;"></div>
+                </div>
+            
+               <div class="row">
+                  <div class="col-md-1"><label for="">Marks</label></div>
+                  <div class="col-md-5"><input type="text" id="marks" class="form-control" style="width: 20%;"></div>
+               </div>
+    
+           
+        
+            
+            
+        </div>
+        </div>
+        <div class="footer">
+            <input type="button" value="submit" onclick="Addstudent()" class="btn btn-primary"> <br> <br>
+
+        </div>
+    
+
+
+
+    <table border="1" class="table">
+        <thead>
+        <tr>
+            <th>Roll no</th>
+            <th>Name</th>
+            <th>marks</th>
+            <td>Delete</td>
+        </tr>
+    </thead>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function DisplayDate()
+    {
+        var sdt=document.getElementById("sd").value;
+        var edt=document.getElementById("ed").value;
+         
+        var sdate=new Date(sdt);
+        var edate=new Date(edt);
+
+        var d=edate-sdate;
+        
+        //var d=((((edate-sdate)/1000)/60)/60)/24;
+
+        var sec=d/1000;
+        var Minutes=sec/60;
+
+        var hour=Minutes/60;
+    
+
+        var day=hour/24;
+
+    
+    
+        document.getElementById("abc").innerHTML=day +"day";
+    }
+</script>
+<body>
+    <input type="date" id="sd" >
+    <input type="Date" id="ed">
+
+    <input type="button" value="submit" onclick="DisplayDate()">
+    <h2 id="abc"></h2>
+    
+</body>
+</html>

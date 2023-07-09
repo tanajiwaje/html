@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Bill</title>
+    <link rel="stylesheet" href="/Bootstrap Files/css/bootstrap.min.css">
+
+    <style>
+        h2{
+            
+            color: darkcyan;
+        }
+        .item
+        {
+        overflow: scroll;
+        height:200px;
+        margin-left: 10%;
+         
+        }
+
+        .invoice{
+            margin-left: 20%;
+        }
+    </style>
+    <script>
+        var arr=[];
+        function Display()
+        {
+           var grid=document.getElementById("table");
+           var checkbox=grid.getElementsByTagName("INPUT");
+           var message=" ";
+           var AllTotal=0;
+           var st={}
+           var cname=document.getElementById("txt").value;
+           document.getElementById("cname").innerHTML=cname;
+           
+           for(var i=0;i<checkbox.length;i++)
+           {
+            if(checkbox[i].checked)
+            {
+                var row=checkbox[i].parentNode.parentNode;
+                var name=row.cells[1].innerHTML;
+                var qty=row.cells[2].innerHTML;
+                var prise=row.cells[3].innerHTML;
+                var Total=qty*prise;
+                var st={"name":name,"qty":qty,"prise":prise,"Total":Total};
+                arr.push(st);
+            }
+            
+           }
+
+        console.log(arr);
+
+        var data="";
+
+        arr.forEach(function(d,i) {
+            AllTotal=AllTotal+d.Total;
+        });
+        document.getElementById("t").innerHTML=AllTotal;
+        
+
+        arr.forEach(function(d,i) {
+            data=data+"<tr><td>"+d.name+"</td>"+
+                "<td>"+d.qty+"</td>"+
+                "<td>"+d.prise+"</td>"+
+                "<td>"+d.Total+"</td></tr>";
+        });
+        data=data+"<tr><td></td><td></td><td></td><p style='text-align: right;'>Total ="+AllTotal+"</td></tr>";
+       
+         document.getElementById("tbl").innerHTML=data;
+   
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+    <h2>Glossory</h2>
+    Enter Customer name <input type="text" id="txt" ><br> <br>
+    <table border="1" id="table" class="table">
+        <thead>
+      <tr>
+        <th>Sr</th>
+        <th>Item</th>
+        <th>Quntity</th>
+        <th>Rate</th>
+        <th>click</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td >1</td>
+        <td>wheat</td>
+        <td>10</td>
+        <td>100</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>rice</td>
+        <td>4</td>
+        <td>32</td>
+        <td> <input type="checkbox"></td>
+
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>Corn</td>
+        <td>8</td>
+        <td>50</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>oats</td>
+        <td>7</td>
+        <td>55</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>Amaranth</td>
+        <td>12</td>
+        <td>60</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>Quinoa</td>
+        <td>2</td>
+        <td>50</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>7</td>
+        <td>Spelt</td>
+        <td>7</td>
+        <td>20</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>8</td>
+        <td>Teff</td>
+        <td>5</td>
+        <td>90</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>9</td>
+        <td>Quinoa</td>
+        <td>2</td>
+        <td>50</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+      <tr>
+        <td>10</td>
+        <td>Millet</td>
+        <td>6</td>
+        <td>40</td>
+        <td> <input type="checkbox"></td>
+      </tr>
+
+
+    </tbody>
+
+  
+    </table>
+    <input type="button" value="submit" onclick="Display()" class="btn btn-primary">
+    <hr>
+</div>
+</div>
+
+
+<div class="invoice"> 
+<h2>Invoice</h2>
+      <p>Customer Name : <span id="cname"></span></p> 
+      <p>Total  : <span id="t"></span></p>
+      
+     <table>
+        <thead>
+         
+            <tr>
+                <th>|Item Name|</th>
+                <th>|Quntity|</th>
+                <th>|Rate|</th>
+                <th>|Prise|</th>
+
+
+            </tr>
+
+        </thead>
+        <tbody id="tbl"></tbody>
+    </table>
+
+</div>
+   
+</body>
+</html>

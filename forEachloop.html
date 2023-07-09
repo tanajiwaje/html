@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Bootstrap Files/css/bootstrap.min.css">
+    <script>
+        var student=[
+            {"roll":100,"Name":"vijay","marks":80,"Qulification":"BE"},
+            {"roll":101,"Name":"ajay","marks":40,"Qulification":"ME"},
+            {"roll":102,"Name":"suraj","marks":70,"Qulification":"LLB"},
+            {"roll":103,"Name":"ganesh","marks":90,"Qulification":"MCOM"},
+            {"roll":104,"Name":"mahesh","marks":40,"Qulification":"MCA"},
+            {"roll":105,"Name":"raju","marks":50,"Qulification":"MBA"},
+            {"roll":106,"Name":"sujit","marks":87,"Qulification":"MA"},
+            {"roll":107,"Name":"pankaj","marks":83,"Qulification":"BSc"},
+            {"roll":108,"Name":"abhi","marks":65,"Qulification":"BCA"},
+            {"roll":109,"Name":"santosh","marks":67,"Qulification":"BCOM"},
+            {"roll":110,"Name":"mahesh","marks":88,"Qulification":"BA"},
+            {"roll":111,"Name":"pratik","marks":98,"Qulification":"BTECH"}
+    ]
+    
+    function show()
+    {
+    var data=" ";
+    student.forEach(function(d,i){
+         data+="<tr><td>"+i+"</td><td>"+d.roll+"</td><td>"+
+            d.Name+"</td>"+
+            "<td>"+d.marks+"</td>"+
+            "<td>"+d.Qulification+"</td></tr>"
+    })
+   document.getElementById("tbl").innerHTML=data;
+}
+
+ function FilterByRollno()
+ {
+    var t=document.getElementById("textno").value;
+       if(t!="")
+       {
+           var data=" ";
+           student.forEach(function(d,i){
+            if(d.roll==t){
+                data+="<tr><td>"+i+"</td><td>"
+                    +d.roll+"</td><td>"
+                    +d.Name+"</td><td>"
+                    +d.marks+"</td><td>"
+                    +d.Qulification+"</td></tr>";
+            }
+
+           })
+           document.getElementById("tbl").innerHTML=data;
+
+       }
+       else
+       {
+        show();
+       }
+   
+    
+ }
+
+ function FilterByName()
+ {
+    var n=document.getElementById("txt").value;
+       if(n!="")
+       {
+           var data=" ";
+           student.forEach(function(d,i){
+            if(d.Name.toUpperCase().match(n.toUpperCase())){
+                data+="<tr><td>"+i+"</td><td>"
+                    +d.roll+"</td><td>"
+                    +d.Name+"</td><td>"
+                    +d.marks+"</td><td>"
+                    +d.Qulification+"</td></tr>";
+            }
+
+           })
+           document.getElementById("tbl").innerHTML=data;
+
+       }
+       else
+       {
+        show();
+       }
+ }
+
+    </script>
+</head>
+<body onload="show()">
+
+  <table border="1" class="table">
+    <thead>
+    <tr>
+        <th>index</th>
+        <th>rollno 
+        
+            <input type="text" id="textno" onkeyup="FilterByRollno()" placeholder="Search by Roll no." >
+
+        </th>
+
+        <th>name <input type="text" id="txt" onkeyup="FilterByName()" placeholder="Search by name." ></th>
+        <th>marks</th>
+        <th>Qulification</th>
+    </tr>
+</thead>
+ 
+ <tbody id="tbl">
+
+ </tbody>
+  </table>
+
+
+    
+</body>
+</html>

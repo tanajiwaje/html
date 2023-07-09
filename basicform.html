@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Bootstrap Files/css/bootstrap.min.css">
+    <style>
+        th{
+           background-color: rgb(190, 198, 214); 
+        }
+    </style>
+
+    <script>
+        var student = [];
+        function Submit() {
+            var name = document.getElementById("name").value;
+            var des = document.getElementById("sel").value;
+            var sal = document.getElementById("salary").value;
+            var desc = document.getElementById("desc").value;
+
+            if (document.getElementById('male').checked) {
+                var set = document.getElementById("male").value;
+
+            }
+
+            if (document.getElementById("female").checked) {
+                var set = document.getElementById("female").value;
+            }
+
+            var st = {
+                "name": name, "des": des, "sal": sal, "gender": set, "desc": desc
+            }
+
+            student.push(st);
+            var data = "";
+            student.forEach(function (d, i) {
+                data = data + "<tr><td>" + d.name + "</td><td>" + d.des + "</td><td>" + d.sal + "</td><td>" + d.gender + "</td><td>" + d.desc + "</td></tr>";
+
+            })
+
+            document.getElementById("tbl").innerHTML = data;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="panel panel-info">
+        <div class="panel-title">
+            <h2>Employees information</h2>
+        </div>
+    </div>
+    
+     
+
+
+    <table class="table table-hover" style="width: 40%;" >
+
+        <tr>
+            <td>
+                Emp Name:
+            </td>
+
+            <td><input type="text" name="" id="name" class="form-control"> </td>
+        </tr>
+
+        <tr>
+            <td>Designation :</td>
+            <td><select name="" id="sel" class="form-control">
+                    <option value="hr">HR</option>
+                    <option value="trainer">Trainer</option>
+                    <option value="developer">Developer</option>
+                </select></td>
+        </tr>
+
+        <tr>
+            <td>salary:</td>
+            <td><input type="number" id="salary" class="form-control"> </td>
+        </tr>
+
+        <tr>
+            <td> Gender</td>
+            <td> <input type="radio" name="gender" value="Male" id="male">male &nbsp; &nbsp; <input type="radio" name="gender" value="Female" id="female"> female</td>
+        </tr>
+
+        <tr>
+            <td>
+                Descripton:
+            </td>
+
+            <td><input type="text" name="" id="desc" class="form-control"> <br></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="submit" onclick="Submit()" class="btn btn-primary"></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+        <p id="demo"></p>
+
+    </table>
+
+    <table border="1" class="table table-hover">
+
+        <thead>
+            <tr>
+
+                <th>Emp Name
+                </th>
+                <th>Designation</th>
+                <th>salary</th>
+                <th>Gender</th>
+                <th>Descripton</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbl">
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

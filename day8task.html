@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day 8 task </title>
+    <link rel="stylesheet" href="/html/css/bootstrap.min.css">
+    <script src="/html/js/jquery.min.js"></script>
+    <script src="/html/js/bootstrap.min.js"></script>
+    <style>
+       .container{
+        margin-top: -20px;
+        margin-left: -14px;
+        display: grid;
+        height: 90vh;
+        width: 102%;
+        grid-template-columns: 0.8fr 1.5fr 1fr;
+        grid-template-rows: 1.0fr 1.4fr 0.2fr;
+        grid-template-areas: "sidebar cls login"
+                             "sidebar main main"
+                             "sidebar footer footer";
+       }
+       .sidebar{background: tomato;
+           grid-area: sidebar;
+           
+        
+        }
+       .cls{background: teal;
+        grid-area: cls;
+    }
+       .login{
+        background-image: url(/html/day7taskimage/i3.jpg);
+        grid-area: login;
+        
+
+        
+
+
+    }
+    .login .log label{
+        color: white;
+    }
+       .main{
+        grid-area: main;
+    }
+       footer{
+        background-color: whitesmoke;
+     grid-area: footer;}
+     img{
+        display: block;
+  
+     }
+
+     .cls{
+      padding: 20px;
+
+        
+     }
+
+     
+     .login .log{
+        width: 220px;
+        height: 20px;
+        margin-left:50px ;
+        text-size-adjust: 1000px;
+        
+
+        
+     }
+
+     .login .log label{
+        display: block;
+        width: 30px;
+        height: 20px;
+     }
+    </style>
+</head>
+<body>
+    
+    
+    <nav class="navbar navbar-inverse bg-primary">
+        <nav class="navbar-header">
+            <div class="navbar-brand">CIIT</div>
+        </nav>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Course</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+       
+    </nav>
+    <div class="container">
+        <div class="sidebar">
+            <div class="panel panel-primary" >
+                <div class="panel-heading">
+                    <div class="panel-title" style="text-align: center;">Registration Form</div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="">Name:</label>
+                        <input type="text" name="" id="" placeholder="Enter Name" class="form-control">
+
+                        <label for="">Surname:</label>
+                        <input type="text" name="" id="" placeholder="Enter Surname" class="form-control">
+
+                        <label for="">Address:</label>
+                        <input type="text" name="" id="" placeholder="Enter address" class="form-control">
+
+                        <label for="">Mobile:</label>
+                        <input type="number" name="" id="" placeholder="Enter Number" class="form-control">
+
+                        <label for="">Email id:</label>
+                        <input type="email" name="" id="" placeholder="Enter Number" class="form-control">
+                         
+                         
+                        <label for="">education:</label>
+                        <input type="text" name="" id="" placeholder="Enter education" class="form-control">
+                        <br>
+
+                        <div class="form-check">
+                            <label for="">Gender:</label>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Male
+                            </label>
+                        
+                          
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Female
+                            </label>
+                          </div>
+                          <br>
+
+                        <div class="dropdown">
+                            <label for="">Select Course:</label>
+                            <button class="btn btn-default dropdown-toogle" type="button" data-toggle="dropdown">Tutorials
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Java</a></li>
+                                <li role="presentation"><a href="#" role="menuitem" tabindex="-1">.net</a></li>
+                                <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Python</a></li>
+                                
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                
+                <div class="panel-footer">
+                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-danger">cancel</button>
+                </div>
+            </div>
+        </div>
+
+
+       <!--this is corousel -->
+        <div class="cls">
+                 <div class="carousel slide" data-ride="corousel" id="abc" data-interval="1000">
+                    <ol class="carousel-indicators">
+                        <li data-target="#abc" data-slide-to="0"></li>
+                        <li data-target="#abc" data-slide-to="1"></li>
+                        <li data-target="#abc" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="/html/day8taskimage/java1.png" alt="">
+                        </div>
+                        <div class="item ">
+                            <img src="/html/day8taskimage/net.png" alt="">
+                        </div>
+                        
+                        <div class="item ">
+                            <img src="/html/day8taskimage/web.jpeg" alt="">
+                        </div>
+                    </div>
+
+                    <a href="#abc" class="carousel-control left" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#abc" class="carousel-control right" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                 </div>
+        </div>
+
+        <div class="login">
+            <div class="log">
+            <form action="">
+                <h2 style="text-align: center; color: white;">Login</h2>
+                <label for="">UserName:</label>
+                <input type="text" placeholder="Enter Name" class="form-control">
+
+                <label for="">Password</label>
+                <input type="password" name="" id="" class="form-control" placeholder="Enter Password" width="50">
+
+                <label for="">forgot Password ?</label>
+            </form>
+            </div>
+        </div>
+
+
+
+        <div class="main">
+            <ul class="nav  nav-tabs">
+                <li><a href="#m1" data-toggle="tab">java</a></li>
+                <li><a href="#m2" data-toggle="tab">.net</a></li>
+                <li><a href="#m3" data-toggle="tab">web development</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="m1">
+                    <h4>Java Course Information</h4>
+                    <h5>Duration:4 month</h5>
+                    <p>In this coure we cover core java and advance java 
+                        we cover all 2 module spring and hybernate
+                        Java is a widely used object-oriented programming language and software platform that runs on billions of devices, including notebook computers, mobile devices, gaming consoles, medical devices and many others. The rules and syntax of Java are based on the C and C++ languages.
+                    </p>
+ 
+                </div>
+
+                <div class="tab-pane fade" id="m2">
+                    <h4>.Net Course Information</h4>
+                    <h5>Duration:3.5 Month</h5>
+                    <p>ASP.NET web pages are simply pure text, like HTML files. ASP.NET web pages are the main building block for application development. You can develop your applications in any language compatible with the common language runtime, including Microsoft Visual Basic and C#. These languages enable you to develop ASP.NET applications that benefit from the common language runtime, type safety, inheritance, and so on. ASP.NET incorporates all the important standards of our time, such as XML and SOAP, plus with ADO.NET and the foundation class libraries.</p>
+                </div>
+
+                <div class="tab-pane fade" id="m3">
+                    <h4>web development</h4>
+                    <h5>Duration:5 month</h5>
+                    <p>A general web designing course syllabus can be simply classified into the major concepts of web designing and programming languages as well as the tools and software required for designing web pages. Here are the important topics covered in Web Designing Syllabus:
+
+                        Basics of Web Designing
+                        Multimedia and its Applications
+                        Web Technologies
+                        Introduction to Web Design & Applications
+                        Computer Graphics
+                        Mathematical Structure for Computer Science
+                        HTML
+                        CSS
+                        JavaScript
+                        Bootstrap
+                        Adobe Dreamweaver
+                        Adobe Flash
+                        Available Softwares for Graphic Designing
+                        Animation Techniques</p>
+                </div>
+            </div>
+
+
+
+        </div>
+        <footer>
+        
+            <marquee behavior="" direction="">
+                <h3>New year offer buy one course get free deploma course </h3>
+            </marquee>
+        </footer>
+    </div>
+</body>
+</html>

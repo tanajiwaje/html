@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    
+     <script>
+        function Display(){
+        var startdate=document.getElementById("startdate").value;
+        var enddate=document.getElementById("enddate").value;
+        var resttimetext=Number(document.getElementById("resttimetext").value);
+    
+        var sdate=new Date(startdate);
+        var edate=new Date(enddate);
+        
+
+        var sday=sdate.getDate();
+        var smonth=sdate.getMonth()+1;
+        var syear=sdate.getFullYear();
+
+        var eday=edate.getDate();
+        var emonth=edate.getMonth()+1;
+        var eyear=edate.getFullYear();
+
+      
+        var d=edate-sdate;
+        var d=(edate-sdate)/1000/60/60/24; //day
+        
+         //eeww2www3alert(d);
+        var starttime=document.getElementById("starttime").value;
+        var endtime=document.getElementById("endtime").value;
+        
+        //var stime=new Date("10 02 2023 "+starttime);
+        var stime=new Date(""+sday+" "+smonth+" "+syear+" "+starttime); 
+        var etime=new Date(""+sday+" "+smonth+" "+syear+" "+endtime);
+       // var rtime=new Date(""+sday+" "+smonth+" "+syear+" "+resttime);
+      //alert(stime);
+        // var stimehour=stime.getHours();
+         //var stimemin=stime.getMinutes();
+
+         //var sstime=stimehour+(stimemin/60);
+         
+         //var etimehour=etime.getHours();
+         //var etimemin=etime.getMinutes();
+         //var eetime=etimehour+(etimemin/60);
+
+         //alert(sstime);
+         //alert(eetime);
+        /// var hh=stime.getHours();
+        var mtime=(etime-stime)/1000/60;
+        //var mtime=(etime-stime)/1000;
+        //alert(mtime);
+       // var htime=mtime/60;
+        //alert(htime);
+         
+        if(d>0)
+        {
+           var ans=d*24*60;
+           var a=ans+mtime;
+           var hhhh=a/60;
+        }else
+        {
+           var hhhh=mtime/60;
+        }
+
+        //var resthour=rtime.getHours();
+        //var restmin=rtime.getMinutes();
+
+        //var restminhour=(resthour)+restmin/60;
+        //alert(restminhour);
+         //alert(resttimetext);
+
+
+        ////////////////////resttime //////////calculate
+
+        
+
+
+         var totalhour=hhhh-resttimetext;
+       // var totolhour=hhhh-restminhour;
+
+
+
+
+
+
+        
+
+        
+
+
+        
+       // document.getElementById("day").innerHTML=hhhh;
+
+    
+     
+        document.getElementById("tot").innerHTML=totalhour;
+
+
+        
+
+        var charge=document.getElementById("charge").value;
+
+         
+        
+        console.log(charge);
+         var tt=totalhour*charge;
+         console.log(tt);
+         document.getElementById("tottt").innerHTML=tt;
+       //  document.getElementById("totalcharge").value=charge;    
+    
+    
+    }
+     </script>
+    
+</head>
+<body>
+    <label>start date</label>
+    <input type="date" id="startdate"><br> <br>
+
+    <label >start time</label>
+    <input type="time" id="starttime"> <br> <br>
+<hr>
+    <label>end date</label> <h4 id="abc"></h4>
+    <input type="date" id="enddate"><br> <br>
+
+    <label >end time</label>  <h4 id="xyz"></h4>
+    <input type="time" id="endtime"> <br> <br>
+<hr>
+    <label >rest time</label>
+    <input type="text" id="resttimetext"> <br> <br>
+
+   <!-- <label >Total working time</label>  
+    <input type="text" id="twt" onchange="totalhour()"> <br> <br>
+    <hr>  -->
+  
+    <label>charges / hourse</label>
+    <input type="text" id="charge"> <br><br>
+
+  <!--  <label>Total charges</label>
+  <input type="text" id="totalcharge">  -->
+
+    <input type="button" value="submit" onclick="Display()">
+    <br>
+
+   day: <h1 id="day"></h1>
+   total : <h2 id="tot"></h2>
+   total charge: <h3 id="tottt"></h3>
+
+  
+</body>
+</html>

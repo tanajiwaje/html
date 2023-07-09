@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function GetNumber(){
+        var no=Number(document.getElementById("no").value);
+        var ans=0;
+        var temp=no;
+        var rem=0;
+        var ans=0;
+
+        while(no!=0)
+        {
+            rem=no%10;
+            ans=ans*10+rem;
+            no=Math.floor(no/10);
+        
+
+        }
+        if(ans===temp)
+        {
+          document.getElementById("abc").innerHTML="Number is palindrome";
+        }
+        else
+        {
+            document.getElementById("abc").innerHTML="Number not palindrome";
+        }
+
+        }
+    </script>
+</head>
+<body>
+    enter number <input type="number" id="no">
+    <p id="abc"></p> 
+    <input type="button" value="submit" onclick="GetNumber()"> 
+</body>
+</html>

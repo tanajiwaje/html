@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        var student=[];
+       function Display()
+       {
+         var name=document.getElementById("name").value;
+         var no=document.getElementById("rno").value;
+         var add=document.getElementById("add").value;
+        
+         var st={"name":name,"rno":no,"add":add}
+         student.push(st);
+
+         DisplayData();
+        
+   
+       }
+
+       function DisplayData()
+       {
+        var data='';
+        for(var i=0;i<student.length;i++)
+        {
+         data=data+"<tr><td>"+student[i].name+"</td><td>"+student[i].rno+"</td><td>"+student[i].add+"</td><td><input type='button' value='Delete' onclick='Delete("+i+")'></td></tr>";
+          
+        } 
+        document.getElementById("tbl").innerHTML=data;
+
+       }
+
+       function Delete(p)
+       {
+           student.splice(p,1);
+           DisplayData();
+
+       }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td> Enter name :</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+
+        <tr>
+            <td> Enter rno</td>
+            <td><input type="text" id="rno"></td>
+        </tr>
+
+        <tr>
+            <td> Enter Address</td>
+            <td><input type="text" id="add"></td>
+        </tr>
+
+        <tr><td></td><td><input type="button" value="submit" onclick="Display()"></td></tr>
+    </table>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Number</td>
+                <td>Address</td>
+            </tr>
+        </thead>
+
+        <tbody id="tbl">
+
+        </tbody>
+    </table>
+   
+</body>
+</html>

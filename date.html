@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+      function DisplayDate()
+      {
+        
+         var dt=new Date();
+         document.getElementById("a").innerHTML=dt.toString();
+         document.getElementById("b").innerHTML=dt.toDateString();
+         document.getElementById("c").innerHTML=dt.toLocaleDateString();
+         document.getElementById("d").innerHTML=dt.toTimeString();
+         document.getElementById("e").innerHTML=dt.toLocaleTimeString();
+         document.getElementById("f").innerHTML=dt.getFullYear();
+         document.getElementById("g").innerHTML=(dt.getMonth()+1);
+         document.getElementById("h").innerHTML=dt.getYear();
+         document.getElementById("i").innerHTML=dt.getHours();
+         document.getElementById("j").innerHTML=dt.getDay();
+         document.getElementById("k").innerHTML=dt.getSeconds();
+         document.getElementById("l").innerHTML=dt.getMinutes();
+
+
+      }
+    </script>
+</head>
+<body onload="DisplayDate()">
+   <h4 id="a">tostring</h4>
+    <h4 id="b"></h4>
+    <h4 id="c"></h4>
+    <h4 id="d"></h4>
+    <h4 id="e"></h4>
+    <h4 id="f"></h4>
+    <h4 id="g"></h4>
+    <h4 id="h"></h4>
+    <h4 id="i"></h4>
+    <h4 id="j"></h4>
+    <h4 id="k"></h4>
+    <h4 id="l"><span>Minutes</span></h4>
+</body>
+</html>

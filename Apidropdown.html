@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/Bootstrap Files/js/jquery.min.js"></script>
+    <script>
+        var stateid=0;
+        $(document).ready(function(){
+            GetState();
+           $("#ddstate").change(function(){
+            GetCity();
+           })
+            
+        })
+
+         function GetState()
+         {
+            $.ajax({
+                url:'https://ciitinstitute.com/api/state',
+                method:'get',
+                contentType:'application/json',
+                success:function(resp){
+                    $.each(resp,function(i,d){
+                        $("#ddstate").append("<option value="+d.state_id+">"+d.state_name+"</option>");
+                    })
+                    
+                }
+            })
+         }
+
+         function GetCity()
+         {
+            var sid=$("#ddstate").val();
+        
+            $.ajax({
+                url:'https://ciitinstitute.com/api/stateidwisecities/'+sid,
+                method:'get',
+                contentType:'application/json',
+                success:function(resp){
+                    $.each(resp,function(i,d){
+                        $("#ddcity").append("<option value="+d.city_id+">"+d.city_name+"</option>");
+                    })
+                }
+            })  
+         }
+
+        
+
+
+    </script>
+</head>
+<body>
+    <label>select state</label>
+    <select id="ddstate">
+        <option value="select">select</option>
+
+
+    </select>
+
+    <label>city</label>
+    <select  id="ddcity">
+        <option value="select">select</option>
+
+    </select>
+
+</body>
+</html>

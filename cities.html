@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+    var cities=[];
+
+    function Addcity()
+    {
+       var c=document.getElementById("city").value;
+       var i=cities.indexOf(c.toUpperCase());
+       if(i==-1)
+       {
+        cities.push(c.toUpperCase());
+       }
+       else{
+        alert("cities already exists");
+       }
+       Display();
+       Cleardata();
+    }
+
+    function Display()
+    {
+        var data=" ";
+        for(var i=0;i<cities.length;i++)
+        {
+            data+="<li type='squre' style='color:blue'>"+cities[i]+"<input type='button' value='remove' onclick=removecity("+i+")>"+"</li>";
+        }
+        document.getElementById("new").innerHTML=data;
+    }
+
+    function Cleardata()
+    {
+        document.getElementById("city").value=" ";
+    }
+
+    function removecity(p){
+        cities.splice(p,1);
+        Display();
+    }
+
+</script>
+<body>
+    Enter city <input type="text" id="city"><br><br>
+    <input type="button" value="Add city" onclick="Addcity()">
+    <hr>
+    <ul id="new"></ul>
+</body>
+</html>

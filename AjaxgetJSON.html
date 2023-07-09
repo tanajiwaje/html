@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/Bootstrap Files/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $.getJSON("mydata1.txt",function(data){
+                    $.each(data,function(i,d){
+                        $("#tbldata").append("<tr><td>"+d.rno+"</td><td>"+d.name+"</td></tr>");
+                    })
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <input type="button" value="Display" id="btn">
+    <table border="1">
+        <thead>
+            <th>Roll No</th>
+            <th>Name</th>
+        </thead>
+
+        <tbody id="tbldata">
+
+        </tbody>
+    </table>
+    
+</body>
+</html>
